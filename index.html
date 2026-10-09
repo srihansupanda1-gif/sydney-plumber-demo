@@ -3,200 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sydney Plumber | Demo Website</title>
- 
+
+https://fonts.googleapis.com
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght;600;700&display=swap
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
- 
+
 body{
-line-height:1.6;
-color:#333;
+background:#f8fbff;
+color:#222;
 }
- 
+
 header{
-background:#0077cc;
-color:white;
-padding:20px;
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(8px);
+z-index:1000;
 }
- 
+
 .logo{
+color:white;
 font-size:28px;
-font-weight:bold;
+font-weight:700;
 }
- 
-.btn{
-background:#ff9800;
+
+.nav-btn{
+background:#00b4ff;
 color:white;
-padding:12px 20px;
+padding:12px 24px;
+border-radius:50px;
 text-decoration:none;
-border-radius:6px;
-font-weight:bold;
+font-weight:600;
+transition:.3s;
 }
- 
+
+.nav-btn:hover{
+transform:translateY(-3px);
+}
+
 .hero{
-background:#0077cc;
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 color:white;
-text-align:center;
-padding:100px 20px;
-}
- 
-.hero h1{
-font-size:50px;
-margin-bottom:20px;
-}
- 
-.hero p{
-font-size:20px;
-margin-bottom:30px;
-}
- 
-.section{
-padding:60px 10%;
-}
- 
-.section h2{
-text-align:center;
-margin-bottom:30px;
-color:#0077cc;
-}
- 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
- 
-.card{
-background:#f5f5f5;
-padding:25px;
-border-radius:10px;
-text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
- 
-.contact{
-background:#0077cc;
-color:white;
-text-align:center;
-}
- 
-.contact h2{
-color:white;
-}
- 
-footer{
-background:#111;
-color:white;
-text-align:center;
 padding:20px;
 }
- 
-.contact-box{
-margin-top:20px;
+
+.hero-content{
+max-width:900px;
+animation:fadeUp 1s ease;
+}
+
+.hero h1{
+font-size:65px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+text-decoration:none;
+padding:14px 28px;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{
+background:#00aaff;
+color:white;
+}
+
+.secondary{
+background:white;
+color:#111;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+section{
+padding:90px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+color:#0a4e9a;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#0077ff;
+}
+
+.about{
+background:#eef6ff;
+border-radius:25px;
+padding:50px;
+text-align:center;
+}
+
+.about h2{
+margin-bottom:20px;
+font-size:38px;
+}
+
+.about p{
+max-width:900px;
+margin:auto;
 font-size:18px;
 }
- 
+
+.contact{
+background:#0d1b2a;
+color:white;
+border-radius:30px;
+text-align:center;
+}
+
+.contact h2{
+margin-bottom:25px;
+font-size:40px;
+}
+
+.contact p{
+margin:12px 0;
+font-size:18px;
+}
+
+.call-btn{
+display:inline-block;
+margin-top:20px;
+background:#00aaff;
+color:white;
+padding:15px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+}
+
+footer{
+background:#000;
+color:#aaa;
+text-align:center;
+padding:25px;
+margin-top:60px;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 @media(max-width:768px){
+
 .hero h1{
-font-size:34px;
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title{
+font-size:30px;
 }
 }
+
 </style>
 </head>
- 
 <body>
- 
+
 <header>
 <div class="logo">Sydney Plumber</div>
-<a href="#contact" class="btn">Getsection class="hero">
-<h1>Trusted Plumbing Services in Sydney</h1>
-<p>Fast, Reliable & Professional Plumbing Solutions</p>
-#contactRequest Service</a>
+
+#contact
+Get Quote
+</a>
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Trusted Plumbing Services Across Sydney</h1>
+
+<p>
+Fast response plumbing solutions, leak repairs, drain cleaning and emergency plumbing services.
+</p>
+
+<div class="hero-buttons">
+
+#contact
+Request Service
+</a>
+
+tel:+61240050318
+Call Now
+</a>
+
+</div>
+
+</div>
+
 </section>
- 
-<section class="section">
-<h2>Our Services</h2>
- 
-<div class="services">
- 
+
+<section class="reveal">
+
+<h2 class="section-title">
+Our Plumbing Services
+</h2>
+
+<div class="cards">
+
 <div class="card">
 <h3>Emergency Plumbing</h3>
-<p>Rapid response plumbing services when you need them most.</p>
+<p>24/7 rapid response plumbing solutions for urgent issues.</p>
 </div>
- 
+
 <div class="card">
 <h3>Drain Cleaning</h3>
 <p>Blocked drains cleared quickly and professionally.</p>
 </div>
- 
+
 <div class="card">
 <h3>Leak Repairs</h3>
-<p>Reliable leak detection and repair solutions.</p>
+<p>Expert leak detection and repair services.</p>
 </div>
- 
+
 <div class="card">
 <h3>Hot Water Systems</h3>
-<p>Installation and repair of hot water systems.</p>
+<p>Installation and repair of hot water units.</p>
 </div>
- 
+
 </div>
+
 </section>
- 
-<section class="section">
-<h2>Why Choose Sydney Plumber?</h2>
- 
-<div class="services">
- 
-<div class="card">
-<h3>Fast Response</h3>
-<p>Quick service across Sydney and surrounding areas.</p>
-</div>
- 
-<div class="card">
-<h3>Professional Service</h3>
-<p>Reliable workmanship and friendly customer support.</p>
-</div>
- 
-<div class="card">
-<h3>Affordable Pricing</h3>
-<p>Transparent pricing with no hidden surprises.</p>
-</div>
- 
-</div>
-</section>
- 
-<section id="contact" class="section contact">
- 
-<h2>Contact Information</h2>
- 
-<div class="contact-box">
-📍 277 Riley St, Surry Hills NSW 2010, Australia
-<br><br>
-📞 +61 2 4005 0318
-<br><br>
-✅ Repair Services
-<br>
-✅ LGBTQ+ Friendly
-<br>
-✅ Credit Card Payments Accepted
-</div>
- 
-</section>
- 
-<footer>
+
+<section class="reveal">
+
+<div class="about">
+
+<h2>About Sydney Plumber</h2>
+
 <p>
-Demo Website Concept For Sydney Plumber<br>
-This is a demonstration website and is not the official website of Sydney Plumber.
+Located in Surry Hills, Sydney Plumber provides reliable plumbing repair and maintenance services throughout Sydney. Our focus is quick response times, professional workmanship and customer satisfaction.
 </p>
-</footer>
- 
-</body>
-</html>
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<h2 class="section-title">
+Why Choose Us
+</h2>
