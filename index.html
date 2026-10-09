@@ -1,332 +1,714 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sydney Plumber | Demo Website</title>
-
-https://fonts.googleapis.com
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght;600;700&display=swap
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#f8fbff;
-color:#222;
-}
-
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(8px);
-z-index:1000;
-}
-
-.logo{
-color:white;
-font-size:28px;
-font-weight:700;
-}
-
-.nav-btn{
-background:#00b4ff;
-color:white;
-padding:12px 24px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.nav-btn:hover{
-transform:translateY(-3px);
-}
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-padding:20px;
-}
-
-.hero-content{
-max-width:900px;
-animation:fadeUp 1s ease;
-}
-
-.hero h1{
-font-size:65px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:22px;
-margin-bottom:30px;
-}
-
-.hero-buttons{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.btn{
-text-decoration:none;
-padding:14px 28px;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-}
-
-.primary{
-background:#00aaff;
-color:white;
-}
-
-.secondary{
-background:white;
-color:#111;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-}
-
-section{
-padding:90px 8%;
-}
-
-.section-title{
-text-align:center;
-font-size:40px;
-margin-bottom:50px;
-color:#0a4e9a;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card h3{
-margin-bottom:15px;
-color:#0077ff;
-}
-
-.about{
-background:#eef6ff;
-border-radius:25px;
-padding:50px;
-text-align:center;
-}
-
-.about h2{
-margin-bottom:20px;
-font-size:38px;
-}
-
-.about p{
-max-width:900px;
-margin:auto;
-font-size:18px;
-}
-
-.contact{
-background:#0d1b2a;
-color:white;
-border-radius:30px;
-text-align:center;
-}
-
-.contact h2{
-margin-bottom:25px;
-font-size:40px;
-}
-
-.contact p{
-margin:12px 0;
-font-size:18px;
-}
-
-.call-btn{
-display:inline-block;
-margin-top:20px;
-background:#00aaff;
-color:white;
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-}
-
-footer{
-background:#000;
-color:#aaa;
-text-align:center;
-padding:25px;
-margin-top:60px;
-}
-
-.reveal{
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:40px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.section-title{
-font-size:30px;
-}
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sydney Plumber | 24/7 Emergency Plumbing Services in Surry Hills & Sydney</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                        },
+                        plumber: {
+                            blue: '#0284c7',
+                            darkblue: '#0369a1',
+                            accent: '#f97316', // Emergency Orange
+                            accentHover: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.03); }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-16 md:pb-0">
 
-<header>
-<div class="logo">Sydney Plumber</div>
+    <!-- Top Emergency Announcement Bar -->
+    <div class="bg-plumber-accent text-white py-2 px-4 text-xs sm:text-sm font-semibold tracking-wide text-center flex justify-center items-center gap-2 shadow-inner">
+        <span class="inline-block w-2.5 h-2.5 bg-white rounded-full animate-ping"></span>
+        <span>24/7 Emergency Response Available in Surry Hills & Surrounding Sydney Areas!</span>
+        <a href="tel:+61240050318" class="underline hover:text-slate-100 font-bold ml-1 hidden sm:inline">Call +61 2 4005 0318</a>
+    </div>
 
-#contact
-Get Quote
-</a>
-</header>
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-plumber-blue text-white rounded-xl flex items-center justify-center shadow-lg shadow-plumber-blue/30">
+                    <i class="fa-solid fa-wrench text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black text-navy-900 tracking-tight leading-none block">SYDNEY <span class="text-plumber-blue">PLUMBER</span></span>
+                    <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Surry Hills & Sydney Metro</span>
+                </div>
+            </a>
 
-<section class="hero">
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+                <a href="#services" class="hover:text-plumber-blue transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-plumber-blue transition-colors">Why Choose Us</a>
+                <a href="#reviews" class="hover:text-plumber-blue transition-colors">Reviews</a>
+                <a href="#calculator" class="hover:text-plumber-blue transition-colors">Estimate Tool</a>
+                <a href="#contact" class="hover:text-plumber-blue transition-colors">Contact</a>
+            </nav>
 
-<div class="hero-content">
+            <!-- CTA Call Button -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:+61240050318" class="bg-plumber-accent hover:bg-plumber-accentHover text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>+61 2 4005 0318</span>
+                </a>
+            </div>
 
-<h1>Trusted Plumbing Services Across Sydney</h1>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
 
-<p>
-Fast response plumbing solutions, leak repairs, drain cleaning and emergency plumbing services.
-</p>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-semibold text-slate-700">
+            <a href="#services" class="block hover:text-plumber-blue py-1">Services</a>
+            <a href="#why-us" class="block hover:text-plumber-blue py-1">Why Choose Us</a>
+            <a href="#reviews" class="block hover:text-plumber-blue py-1">Reviews</a>
+            <a href="#calculator" class="block hover:text-plumber-blue py-1">Cost Estimator</a>
+            <a href="#contact" class="block hover:text-plumber-blue py-1">Contact Us</a>
+            <a href="tel:+61240050318" class="w-full mt-2 bg-plumber-accent text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call Now: +61 2 4005 0318</span>
+            </a>
+        </div>
+    </header>
 
-<div class="hero-buttons">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-navy-900 via-slate-900 to-plumber-darkblue text-white pt-16 pb-24 overflow-hidden">
+        <!-- Background Pattern Decor -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
-#contact
-Request Service
-</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 text-slate-200 px-4 py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Licensed & Insured Sydney Plumbers
+                    </div>
 
-tel:+61240050318
-Call Now
-</a>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                        24/7 Emergency Plumber in <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-200">Surry Hills & Sydney</span>
+                    </h1>
 
-</div>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Fast 30-Minute Guaranteed Arrival Time. Blocked Drains, Hot Water Systems, Leaking Pipes & Gas Fitting. Zero Hidden Fees.
+                    </p>
 
-</div>
+                    <!-- Trust Checklist Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs sm:text-sm font-medium text-slate-300 max-w-xl mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <span>Upfront Fixed Pricing</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <span>30 Min Arrival</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <span>100% Work Guarantee</span>
+                        </div>
+                    </div>
 
-</section>
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="tel:+61240050318" class="bg-plumber-accent hover:bg-plumber-accentHover text-white px-8 py-4 rounded-xl font-extrabold text-lg shadow-xl shadow-plumber-accent/20 transition-all flex items-center justify-center gap-3 glow-pulse">
+                            <i class="fa-solid fa-phone-volume text-xl"></i>
+                            <span>Call +61 2 4005 0318</span>
+                        </a>
+                        <a href="#contact" class="bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calendar-check text-slate-400"></i>
+                            <span>Book Online</span>
+                        </a>
+                    </div>
+                </div>
 
-<section class="reveal">
+                <!-- Right Column Quick Lead Form -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
+                        <div class="absolute -top-3 right-6 bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                            Instant Response
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900 mb-1">Get A Free Quote</h3>
+                        <p class="text-xs text-slate-500 mb-6">Fill out the details below & our Sydney plumbers will call you back in 5 minutes.</p>
 
-<h2 class="section-title">
-Our Plumbing Services
-</h2>
+                        <form id="heroQuoteForm" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Your Full Name</label>
+                                <input type="text" required placeholder="e.g. John Smith" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number</label>
+                                <input type="tel" required placeholder="04XX XXX XXX or +61..." class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Plumbing Issue</label>
+                                <select required class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm text-slate-700">
+                                    <option value="">Select Required Service</option>
+                                    <option value="emergency">Emergency Leak / Pipe Burst</option>
+                                    <option value="drain">Blocked Drain or Toilet</option>
+                                    <option value="hotwater">Hot Water System Repair</option>
+                                    <option value="gas">Gas Fitting / Gas Leak</option>
+                                    <option value="general">General Tap & Bathroom Maintenance</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-plumber-blue hover:bg-plumber-darkblue text-white font-bold py-3.5 rounded-lg shadow-lg transition-all text-base flex items-center justify-center gap-2">
+                                <span>Request Call Back Now</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
-<div class="cards">
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3>Emergency Plumbing</h3>
-<p>24/7 rapid response plumbing solutions for urgent issues.</p>
-</div>
+    <!-- Trust Metrics Bar -->
+    <section class="bg-white py-8 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-black text-plumber-blue">30 Mins</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Surry Hills Arrival Time</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-black text-plumber-blue">24 / 7</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Emergency Availability</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-black text-plumber-blue">15+ Yrs</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Local Industry Experience</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-black text-plumber-blue">5.0 ★</p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Top Google Customer Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3>Drain Cleaning</h3>
-<p>Blocked drains cleared quickly and professionally.</p>
-</div>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-plumber-blue font-bold uppercase text-xs tracking-wider bg-sky-100 px-3 py-1 rounded-full">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-navy-900 mt-3">Professional Plumbing Services</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">We handle everything from quick household tap repairs to major commercial high-pressure emergency drain clearing in Surry Hills and Sydney CBD.</p>
+            </div>
 
-<div class="card">
-<h3>Leak Repairs</h3>
-<p>Expert leak detection and repair services.</p>
-</div>
+            <!-- Services Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-<div class="card">
-<h3>Hot Water Systems</h3>
-<p>Installation and repair of hot water units.</p>
-</div>
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-red-50 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-red-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">24/7 Emergency Plumbing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Pipe bursts, major water leaks, or sewage backups at midnight? Our local dispatch team arrives on-site within 30 minutes.</p>
+                    <a href="tel:+61240050318" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Emergency Call <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-</div>
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-sky-50 text-plumber-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-plumber-blue group-hover:text-white transition-all">
+                        <i class="fa-solid fa-toilet"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Blocked Drains & Toilets</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Using high-pressure hydro jetting and CCTV drain inspection cameras to pinpoint and clear stubborn tree roots and debris.</p>
+                    <a href="#contact" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Book Inspection <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-</section>
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-amber-50 text-amber-500 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Hot Water System Repair</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Same-day repairs and installations for Rinnai, Rheem, Dux, and Bosch electric, gas, and solar hot water units.</p>
+                    <a href="#contact" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Get Hot Water Fixed <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-<section class="reveal">
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-droplet-slash"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Leaking Pipes & Tap Repairs</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Acoustic leak detection for hidden wall/underground leaks. Precision repair for dripping taps and modern shower fittings.</p>
+                    <a href="#contact" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Fix Leaks <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-<div class="about">
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-purple-50 text-purple-500 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Licensed Gas Fitting</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Certified gas plumbing services, gas leak repairs, bayonet installations, cooktop fittings, and compliance certificates.</p>
+                    <a href="#contact" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Book Gas Fitter <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-<h2>About Sydney Plumber</h2>
+                <!-- Service Card 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-indigo-50 text-indigo-500 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Commercial Plumbing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Tailored plumbing maintenance for Surry Hills cafes, restaurants, office spaces, real estate agencies, and strata bodies.</p>
+                    <a href="#contact" class="text-plumber-blue font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Commercial Services <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                </div>
 
-<p>
-Located in Surry Hills, Sydney Plumber provides reliable plumbing repair and maintenance services throughout Sydney. Our focus is quick response times, professional workmanship and customer satisfaction.
-</p>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Cost Calculator Section -->
+    <section id="calculator" class="py-16 bg-navy-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-slate-800 rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl">
+                <div class="text-center mb-8">
+                    <span class="bg-plumber-blue/20 text-sky-300 font-bold text-xs uppercase px-3 py-1 rounded-full border border-sky-500/30">Instant Estimate Tool</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold mt-2">Get an Instant Price Range</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Select your job parameters for an upfront cost estimation.</p>
+                </div>
 
-</section>
+                <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Service Needed</label>
+                        <select id="calcService" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-plumber-blue">
+                            <option value="120">Tap Repair / Leak Fix ($120 - $180)</option>
+                            <option value="220">Blocked Drain Clearing ($220 - $350)</option>
+                            <option value="350">Hot Water System Maintenance ($350 - $600)</option>
+                            <option value="180">Gas Leak / Fitting Check ($180 - $280)</option>
+                        </select>
+                    </div>
 
-<section class="reveal">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Urgency Level</label>
+                        <select id="calcUrgency" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-plumber-blue">
+                            <option value="1.0">Standard Business Hours</option>
+                            <option value="1.3">After Hours / Weekend Callout (+30%)</option>
+                            <option value="1.5">Midnight / Immediate Emergency (+50%)</option>
+                        </select>
+                    </div>
+                </div>
 
-<h2 class="section-title">
-Why Choose Us
-</h2>
+                <div class="bg-slate-900 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-700">
+                    <div>
+                        <p class="text-xs text-slate-400 font-medium">Estimated Price Range (AUD)</p>
+                        <p id="calcTotal" class="text-3xl sm:text-4xl font-extrabold text-emerald-400">$120 - $180 AUD</p>
+                    </div>
+                    <a href="tel:+61240050318" class="bg-plumber-accent hover:bg-plumber-accentHover text-white px-6 py-3 rounded-xl font-bold text-sm w-full sm:w-auto text-center">
+                        Lock In This Rate <i class="fa-solid fa-phone ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-plumber-blue font-bold uppercase text-xs tracking-wider bg-sky-100 px-3 py-1 rounded-full">Surry Hills Trusted Choice</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-navy-900 mt-3 mb-6">Why Sydney Locals Prefer Sydney Plumber</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-plumber-blue shrink-0 flex items-center justify-center font-bold text-xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-navy-900">Guaranteed Fast Response</h4>
+                                <p class="text-slate-600 text-sm mt-1">We know plumbing emergencies can ruin properties. Our local team is stationed near Surry Hills for rapid dispatch.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-plumber-blue shrink-0 flex items-center justify-center font-bold text-xl">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-navy-900">100% Upfront Pricing</h4>
+                                <p class="text-slate-600 text-sm mt-1">No hourly surprises! We inspect the problem and quote you a fixed price before starting any work.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-plumber-blue shrink-0 flex items-center justify-center font-bold text-xl">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-navy-900">Licensed & Fully Insured</h4>
+                                <p class="text-slate-600 text-sm mt-1">Our master plumbers follow strict Australian standards (AS/NZS 3500) and hold complete liability insurance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Callout Banner Card -->
+                <div class="bg-gradient-to-br from-plumber-blue to-plumber-darkblue text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                        <i class="fa-solid fa-faucet-drip"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-sky-200">Local Service Area</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold mt-2 mb-4">Serving Surry Hills & Surrounds</h3>
+                    <p class="text-sky-100 text-sm leading-relaxed mb-6">We cover Surry Hills, Darlinghurst, Paddington, Redfern, Sydney CBD, Waterloo, and all Eastern Suburbs.</p>
+                    
+                    <div class="space-y-3 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-sm">
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Primary Hub:</span>
+                            <span class="font-bold">Surry Hills, NSW 2010</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Phone Contact:</span>
+                            <span class="font-bold">+61 2 4005 0318</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Working Hours:</span>
+                            <span class="font-bold text-emerald-300">Open 24 Hours / 7 Days</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-plumber-blue font-bold uppercase text-xs tracking-wider bg-sky-100 px-3 py-1 rounded-full">Client Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-navy-900 mt-3">What Sydney Residents Say</h2>
+                <div class="flex items-center justify-center gap-1 text-amber-400 text-xl mt-3">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="text-slate-600 text-sm font-semibold ml-2">5.0 Rating on Google Reviews</span>
+                </div>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic mb-6">"Had a major pipe leak under our Surry Hills cafe sink during peak lunch rush. Called Sydney Plumber and they arrived in 20 minutes! Fixed it fast with zero fuss. Life savers!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 font-bold text-slate-700 flex items-center justify-center text-sm">
+                            MK
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy-900 text-sm">Marcus K.</p>
+                            <p class="text-xs text-slate-500">Surry Hills Local Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic mb-6">"Our hot water unit gave up on a Sunday morning. They gave us a fixed price quote over the phone and replaced the system same day. Super professional."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 font-bold text-slate-700 flex items-center justify-center text-sm">
+                            SL
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy-900 text-sm">Sarah L.</p>
+                            <p class="text-xs text-slate-500">Darlinghurst Resident</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic mb-6">"Clean, polite, and very honest pricing. Cleared our blocked main drain with their jetter machine and showed me the CCTV footage afterwards. Highly recommended!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 font-bold text-slate-700 flex items-center justify-center text-sm">
+                            DT
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy-900 text-sm">David T.</p>
+                            <p class="text-xs text-slate-500">Paddington Resident</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-plumber-blue font-bold uppercase text-xs tracking-wider bg-sky-100 px-3 py-1 rounded-full">Contact Us</span>
+                        <h2 class="text-3xl font-black text-navy-900 mt-3">Ready For Immediate Assistance?</h2>
+                        <p class="text-slate-600 text-sm mt-2">Call our emergency line directly or send a message for standard inquiries and non-urgent booking.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-4">
+                        <a href="tel:+61240050318" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-sky-50 border border-slate-200 transition-all group">
+                            <div class="w-12 h-12 bg-plumber-blue text-white rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">24/7 Direct Call Hotline</p>
+                                <p class="text-lg font-black text-navy-900">+61 2 4005 0318</p>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-12 h-12 bg-slate-800 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">Surry Hills Workshop & Hub</p>
+                                <p class="text-sm font-bold text-navy-900">4697+67 Surry Hills, NSW 2010, Australia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-12 h-12 bg-emerald-500 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">Operating Hours</p>
+                                <p class="text-sm font-bold text-navy-900">Open 24 Hours / 365 Days A Year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Form -->
+                <div class="lg:col-span-7 bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-navy-900 mb-2">Book A Service Appointment</h3>
+                    <p class="text-xs text-slate-500 mb-6">Our team will confirm your slot and send a verified plumber.</p>
+
+                    <form id="mainContactForm" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Your Name</label>
+                                <input type="text" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number</label>
+                                <input type="tel" required placeholder="+61 4XX XXX XXX" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Suburb / Address</label>
+                                <input type="text" required placeholder="e.g. Surry Hills, NSW" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Service Type</label>
+                                <select required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm text-slate-700">
+                                    <option value="Emergency Plumbing">Emergency Plumbing</option>
+                                    <option value="Blocked Drains">Blocked Drain / CCTV</option>
+                                    <option value="Hot Water Systems">Hot Water System</option>
+                                    <option value="Gas Fitting">Gas Fitting</option>
+                                    <option value="Commercial Service">Commercial Service</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Describe The Plumbing Problem</label>
+                            <textarea rows="4" placeholder="Describe leak, noise, or pipe location..." class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-plumber-blue text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-plumber-blue hover:bg-plumber-darkblue text-white font-extrabold py-4 rounded-xl shadow-lg transition-all text-base">
+                            Submit Booking Request
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <span class="text-xl font-black text-white tracking-tight block mb-3">SYDNEY <span class="text-plumber-blue">PLUMBER</span></span>
+                    <p class="text-xs text-slate-400 leading-relaxed">Your trusted, 24/7 licensed emergency plumber serving Surry Hills and greater Sydney Metro area with speed and transparency.</p>
+                </div>
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-white">Services</a></li>
+                        <li><a href="#why-us" class="hover:text-white">Why Choose Us</a></li>
+                        <li><a href="#reviews" class="hover:text-white">Customer Reviews</a></li>
+                        <li><a href="#calculator" class="hover:text-white">Cost Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3">Services</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><span>24/7 Emergency Repairs</span></li>
+                        <li><span>Blocked Drain Jetting</span></li>
+                        <li><span>Hot Water System Installs</span></li>
+                        <li><span>Licensed Gas Fitting</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3">Service Location</h4>
+                    <p class="text-xs text-slate-400 mb-2">4697+67 Surry Hills, New South Wales, Australia</p>
+                    <p class="text-xs text-slate-400 mb-2">Phone: <a href="tel:+61240050318" class="text-white font-bold">+61 2 4005 0318</a></p>
+                    <p class="text-xs text-emerald-400 font-semibold">Licence No: PL-982341-NSW</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; <span id="currentYear"></span> Sydney Plumber (Surry Hills). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Bottom Bar for Mobile View (High Conversion CTA) -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 p-3 md:hidden shadow-2xl flex items-center gap-3">
+        <a href="tel:+61240050318" class="flex-1 bg-plumber-accent text-white py-3 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg glow-pulse">
+            <i class="fa-solid fa-phone"></i>
+            <span>CALL NOW (+61 2 4005 0318)</span>
+        </a>
+        <a href="https://wa.me/61240050318?text=Hi%20Sydney%20Plumber,%20I%20need%20a%20quote%20for%20plumbing%20service" target="_blank" class="w-12 h-12 bg-emerald-500 text-white rounded-xl flex items-center justify-center text-xl shrink-0 shadow-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Notification Toast Box -->
+    <div id="toastNotification" class="fixed top-24 right-4 z-50 transform translate-x-full transition-transform duration-300 bg-slate-900 text-white px-5 py-4 rounded-xl shadow-2xl border border-slate-700 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <p id="toastTitle" class="font-bold text-sm">Request Submitted!</p>
+            <p id="toastBody" class="text-xs text-slate-300">We will call you back within 5 minutes.</p>
+        </div>
+    </div>
+
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Nav Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking nav link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Instant Cost Estimator Calculation Logic
+        const calcService = document.getElementById('calcService');
+        const calcUrgency = document.getElementById('calcUrgency');
+        const calcTotal = document.getElementById('calcTotal');
+
+        function updateEstimate() {
+            const basePrice = parseFloat(calcService.value);
+            const multiplier = parseFloat(calcUrgency.value);
+            const minEstimate = Math.round(basePrice * multiplier);
+            const maxEstimate = Math.round(minEstimate * 1.4);
+
+            calcTotal.textContent = `$${minEstimate} - $${maxEstimate} AUD`;
+        }
+
+        calcService.addEventListener('change', updateEstimate);
+        calcUrgency.addEventListener('change', updateEstimate);
+
+        // Toast Notification System
+        function showToast(title, body) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastBody').textContent = body;
+
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 4000);
+        }
+
+        // Form Submit Actions
+        document.getElementById('heroQuoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Quote Request Received!', 'Our Sydney plumber will call you in 5 minutes.');
+            this.reset();
+        });
+
+        document.getElementById('mainContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Booking Submitted!', 'We have scheduled your request. Our dispatcher will contact you.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
